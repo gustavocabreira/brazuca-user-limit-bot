@@ -1,7 +1,9 @@
+require ('dotenv/config');
+
 const discord = require('discord.js');
 const client = new discord.Client({ intents: [1, 512, 32768, 2, 128]});
 
-client.login('MTA2NDY4NjQxNzIxMDUwNzI4NA.GRdQRO.N33j10J846pn_STvjiVoUAZFwzwklDcDVx31zM');
+client.login(process.env.token);
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     if(newState.channelId == undefined) return;
